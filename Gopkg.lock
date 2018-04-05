@@ -19,9 +19,15 @@
   packages = ["bittrex"]
   revision = "c77c5638c2f77b556adaa7add104aa8261fa5171"
 
+[[projects]]
+  name = "gopkg.in/urfave/cli.v1"
+  packages = ["."]
+  revision = "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
+  version = "v1.20.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b500928057f7509e676805fc39e8d0eaa0c8f7cd6d84605418650c82c43bf3fc"
+  inputs-digest = "063f486f69d389c9c1053ba437d3ec6b2af9a5b83da92b1b25edaf83dfedff76"
   solver-name = "gps-cdcl"
   solver-version = 1
