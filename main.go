@@ -17,6 +17,7 @@ func main() {
 	app := cli.NewApp()
 
 	app.Usage = "bittrex-cli is a command-line interface to the Bittrex API."
+	app.Version = version.Version()
 	app.Commands = []cli.Command{
 		{
 			Name:  "get",
