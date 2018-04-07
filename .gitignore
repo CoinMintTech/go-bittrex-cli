@@ -1,4 +1,5 @@
 agent-bittrex-firehose
+data/
 main
 profile.cov
 profile.tmp
