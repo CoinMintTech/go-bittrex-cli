@@ -4,11 +4,12 @@ import (
 	"log"
 	"os"
 
-	"github.com/steenzout/go-agent-bittrex-firehose/internal/getmarkets"
-	"github.com/steenzout/go-agent-bittrex-firehose/internal/getmarketsummary"
-	"github.com/steenzout/go-agent-bittrex-firehose/internal/getticker"
-	"github.com/steenzout/go-agent-bittrex-firehose/internal/getticks"
 	cli "gopkg.in/urfave/cli.v1"
+
+	"github.com/steenzout/go-bittrex-cli/internal/getmarkets"
+	"github.com/steenzout/go-bittrex-cli/internal/getmarketsummary"
+	"github.com/steenzout/go-bittrex-cli/internal/getticker"
+	"github.com/steenzout/go-bittrex-cli/internal/getticks"
 )
 
 func main() {
@@ -55,8 +56,8 @@ func main() {
 			{
 				Name:   "version",
 				Usage:  "version",
-				Before: getticks.ValidateArg,
-				Action: getticks.Run,
+				Before: version.ValidateArg,
+				Action: version.Run,
 			},
 		},
 	}
