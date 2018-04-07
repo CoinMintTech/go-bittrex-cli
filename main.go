@@ -23,19 +23,19 @@ func main() {
 
 				{
 					Name:   "markets",
-					Usage:  "get markets",
+					Usage:  "get the open and available trading markets at Bittrex along with other meta data.",
 					Before: getmarkets.ValidateArg,
 					Action: getmarkets.Run,
 				},
 				{
 					Name:   "marketsummary",
-					Usage:  "get market summary",
+					Usage:  "get the last 24 hour summary of all active exchanges",
 					Before: getmarketsummary.ValidateArg,
 					Action: getmarketsummary.Run,
 				},
 				{
 					Name:   "ticker",
-					Usage:  "get latest ticker",
+					Usage:  "get the current tick values for a market",
 					Before: getticker.ValidateArg,
 					Action: getticker.Run,
 					Flags: []cli.Flag{
@@ -51,6 +51,12 @@ func main() {
 					Before: getticks.ValidateArg,
 					Action: getticks.Run,
 				},
+			},
+			{
+				Name:   "version",
+				Usage:  "version",
+				Before: getticks.ValidateArg,
+				Action: getticks.Run,
 			},
 		},
 	}

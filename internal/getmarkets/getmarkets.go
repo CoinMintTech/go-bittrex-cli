@@ -13,7 +13,7 @@ func ValidateArg(c *cli.Context) error {
 	return nil
 }
 
-// Run get market names.
+// Run get the open and available trading markets at Bittrex along with other meta data.
 func Run(cctx *cli.Context) error {
 	markets, err := bittrex.GetMarkets()
 	if err != nil {

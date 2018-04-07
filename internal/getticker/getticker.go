@@ -44,7 +44,7 @@ func ValidateArg(c *cli.Context) error {
 	return nil
 }
 
-// Run get market names.
+// Run get the current tick values for a market.
 func Run(cctx *cli.Context) error {
 	c := &http.Client{
 		Timeout: time.Second * 10,

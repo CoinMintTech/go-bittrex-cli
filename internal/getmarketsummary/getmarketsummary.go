@@ -49,7 +49,7 @@ func ValidateArg(c *cli.Context) error {
 	return nil
 }
 
-// Run get market names.
+// Run get the last 24 hour summary of all active exchanges.
 func Run(cctx *cli.Context) error {
 	for i := 0; i < 10; i++ {
 		summary, err := bittrex.GetMarketSummary(market)
