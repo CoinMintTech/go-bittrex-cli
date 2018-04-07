@@ -6,6 +6,7 @@ import (
 
 	"github.com/steenzout/go-agent-bittrex-firehose/internal/getmarkets"
 	"github.com/steenzout/go-agent-bittrex-firehose/internal/getmarketsummary"
+	"github.com/steenzout/go-agent-bittrex-firehose/internal/getticker"
 	"github.com/steenzout/go-agent-bittrex-firehose/internal/getticks"
 	cli "gopkg.in/urfave/cli.v1"
 )
@@ -31,6 +32,18 @@ func main() {
 					Usage:  "get market summary",
 					Before: getmarketsummary.ValidateArg,
 					Action: getmarketsummary.Run,
+				},
+				{
+					Name:   "ticker",
+					Usage:  "get latest ticker",
+					Before: getticker.ValidateArg,
+					Action: getticker.Run,
+					Flags: []cli.Flag{
+						cli.DurationFlag{
+							Name:  "interval, i",
+							Usage: "the polling interval",
+						},
+					},
 				},
 				{
 					Name:   "ticks",
