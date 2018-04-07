@@ -1,9 +1,9 @@
 package version
 
 import (
+	"fmt"
 	"runtime"
 
-	"github.com/golang/dep"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -13,17 +13,14 @@ var (
 	commitHash string
 )
 
-const versionHelp = "print version information"
-
 // ValidateArg nothing to be validated.
 func ValidateArg(c *cli.Context) error {
 	return nil
 }
 
 // Run print version information.
-func Run(ctx *dep.Ctx) error {
-	ctx.Out.Printf(`
-version     : %s
+func Run(cctx *cli.Context) error {
+	fmt.Printf(`version     : %s
 build date  : %s
 git hash    : %s
 go version  : %s
@@ -40,4 +37,9 @@ platform    : %s/%s
 	)
 
 	return nil
+}
+
+// Version returns version number.
+func Version() string {
+	return version
 }
