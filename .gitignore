@@ -3,6 +3,7 @@ data/
 main
 profile.cov
 profile.tmp
+release/
 
 vendor/
 
