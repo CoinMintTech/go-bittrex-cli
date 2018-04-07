@@ -15,11 +15,6 @@ func ValidateArg(c *cli.Context) error {
 
 // Run get market names.
 func Run(cctx *cli.Context) error {
-	err := bittrex.IsAPIAlive()
-	if err != nil {
-		return cli.NewExitError(fmt.Errorf("cannot reach bittrex: %v", err), 86)
-	}
-
 	markets, err := bittrex.GetMarkets()
 	if err != nil {
 		return cli.NewExitError(fmt.Errorf("failed to get markets: %v", err), 86)

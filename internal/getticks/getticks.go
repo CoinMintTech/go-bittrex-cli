@@ -10,13 +10,16 @@ import (
 	cli "gopkg.in/urfave/cli.v1"
 )
 
+// resolution number of digits after the decimal point.
+const resolution = 8
+
 func printCandleStick(candle *bittrex.CandleStick) {
-	fmt.Printf("%d\t", candle.High)
-	fmt.Printf("%d\t", candle.Close)
-	fmt.Printf("%d\t", candle.Low)
-	fmt.Printf("%d\t", candle.Volume)
-	fmt.Printf("%d\t", candle.BaseVolume)
-	fmt.Printf("%s\t", time.Time(candle.Timestamp).String())
+	fmt.Printf("%s\t", candle.High.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Close.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Low.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Volume.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.BaseVolume.StringFixedBank(resolution))
+	fmt.Printf("%s\n", time.Time(candle.Timestamp))
 }
 
 // ValidateArg nothing to be validated.
@@ -26,17 +29,12 @@ func ValidateArg(c *cli.Context) error {
 
 // Run get market names.
 func Run(cctx *cli.Context) error {
-	err := bittrex.IsAPIAlive()
-	if err != nil {
-		return cli.NewExitError(fmt.Errorf("cannot reach bittrex: %v", err), 86)
-	}
-
-	candles, err := bittrex.GetTicks("USDT-BTC", "day")
+	cs, err := bittrex.GetTicks("USDT-BTC", "day")
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	for _, candle := range candles {
+	for _, candle := range cs {
 		printCandleStick(&candle)
 	}
 
