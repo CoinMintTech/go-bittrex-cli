@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  name = "github.com/gorilla/websocket"
+  packages = ["."]
+  revision = "ea4d1f681babbce9545c9c5f3d5194a789c89f5b"
+  version = "v1.2.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/juju/errors"
   packages = ["."]
@@ -20,6 +26,18 @@
   revision = "c77c5638c2f77b556adaa7add104aa8261fa5171"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/thebotguys/signalr"
+  packages = ["."]
+  revision = "58078e12c98f4d4feb9ad2f992fde4db192de7a0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/toorop/go-bittrex"
+  packages = ["."]
+  revision = "7dfe1b321c3fca935c2d81b9e27e81edd6655ec9"
+
+[[projects]]
   name = "gopkg.in/urfave/cli.v1"
   packages = ["."]
   revision = "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
@@ -28,6 +46,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "063f486f69d389c9c1053ba437d3ec6b2af9a5b83da92b1b25edaf83dfedff76"
+  inputs-digest = "c305b8df9d4eecafd05946723dc3823eac9e2049d3118c0c25bf02e05e3c9836"
   solver-name = "gps-cdcl"
   solver-version = 1
