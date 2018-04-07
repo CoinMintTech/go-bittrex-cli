@@ -1,36 +1,26 @@
-# agent-bittrex-firehose
+# bittrex-cli
 
-[![Build Status](https://travis-ci.org/steenzout/agent-bittrex-firehose.svg?branch=master)](https://travis-ci.org/steenzout/agent-bittrex-firehose/)
-[![Coverage Status](https://coveralls.io/repos/steenzout/agent-bittrex-firehose/badge.svg?branch=master&service=github)](https://coveralls.io/github/steenzout/agent-bittrex-firehose?branch=master)
+[![Build Status](https://travis-ci.org/steenzout/go-bittrex-cli.svg?branch=master)](https://travis-ci.org/steenzout/go-bittrex-cli/)
+[![Coverage Status](https://coveralls.io/repos/steenzout/go-bittrex-cli/badge.svg?branch=master&service=github)](https://coveralls.io/github/steenzout/go-bittrex-cli?branch=master)
 
-This repository contains the Go agent that connects to the [Bittrex][bitrex] [API][bitrex-api].
-
-## Build
+Command-line interface to the [Bittrex][bittrex] [API][bittrex-api].
 
 ```bash
-$ go build main.go
-```
+$ make
 
-## Run
-
-```bash
-$ go run main.go
-```
-
-## Usage
-
-```bash
+$ ./go-bittrex-cli
 NAME:
-   main - bittrex-cli is a command-line interface to the Bittrex API.
+   bittrex-cli - bittrex-cli is a command-line interface to the Bittrex API.
 
 USAGE:
-   main [global options] command [command options] [arguments...]
+   bittrex-cli [global options] command [command options] [arguments...]
 
 VERSION:
    0.0.0
 
 COMMANDS:
      get      get data
+     version  version
      help, h  Shows a list of commands or help for one command
 
 GLOBAL OPTIONS:
@@ -40,4 +30,4 @@ GLOBAL OPTIONS:
 
 [bittrex]:  https://bittrex.com "Bittrex"
 [bittrex-api]:  https://bittrex.com/home/api "Bittrex API"
-[license]:  https://raw.githubusercontent.com/steenzout/agent-bittrex-firehose/master/LICENSE   "License"
+[license]:  https://raw.githubusercontent.com/steenzout/go-bittrex-cli/master/LICENSE   "License"
