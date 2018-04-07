@@ -1,10 +1,9 @@
-agent-bittrex-firehose
+bittrex-cli
 data/
 main
 profile.cov
 profile.tmp
 release/
-
 vendor/
 
 # Created by https://www.gitignore.io/api/go
