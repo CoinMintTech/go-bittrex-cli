@@ -10,6 +10,7 @@ import (
 	"github.com/steenzout/go-bittrex-cli/internal/getmarketsummary"
 	"github.com/steenzout/go-bittrex-cli/internal/getticker"
 	"github.com/steenzout/go-bittrex-cli/internal/getticks"
+	"github.com/steenzout/go-bittrex-cli/internal/version"
 )
 
 func main() {
@@ -21,7 +22,6 @@ func main() {
 			Name:  "get",
 			Usage: "get data",
 			Subcommands: []cli.Command{
-
 				{
 					Name:   "markets",
 					Usage:  "get the open and available trading markets at Bittrex along with other meta data.",
@@ -53,12 +53,12 @@ func main() {
 					Action: getticks.Run,
 				},
 			},
-			{
-				Name:   "version",
-				Usage:  "version",
-				Before: version.ValidateArg,
-				Action: version.Run,
-			},
+		},
+		{
+			Name:   "version",
+			Usage:  "version",
+			Before: version.ValidateArg,
+			Action: version.Run,
 		},
 	}
 

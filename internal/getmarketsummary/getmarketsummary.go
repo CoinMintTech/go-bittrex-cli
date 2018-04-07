@@ -13,7 +13,35 @@ import (
 // resolution number of digits after the decimal point.
 const resolution = 8
 
-var market string = "USDT-BTC"
+var (
+	market string
+)
+
+// ValidateArg nothing to be validated.
+func ValidateArg(c *cli.Context) error {
+	return nil
+}
+
+// Run get the last 24 hour summary of all active exchanges.
+func Run(cctx *cli.Context) error {
+	for i := 0; i < 10; i++ {
+		summary, err := bittrex.GetMarketSummary(market)
+		if err != nil {
+			log.Fatal(err.Error())
+		}
+
+		if summary.MarketName != market {
+			// bug on v2 API may lead to getting the wrong summary
+			continue
+		}
+
+		printSummary(summary)
+
+		time.Sleep(2 * time.Second)
+	}
+
+	return nil
+}
 
 func printSummary(summary *bittrex.MarketSummary) {
 	//The name of the market (e.g. BTC-ETH).
@@ -42,30 +70,4 @@ func printSummary(summary *bittrex.MarketSummary) {
 	fmt.Printf("%s\t", summary.PrevDay.StringFixedBank(resolution))
 	// The timestamp of the creation of the market.
 	fmt.Printf("%s\n", summary.Created)
-}
-
-// ValidateArg nothing to be validated.
-func ValidateArg(c *cli.Context) error {
-	return nil
-}
-
-// Run get the last 24 hour summary of all active exchanges.
-func Run(cctx *cli.Context) error {
-	for i := 0; i < 10; i++ {
-		summary, err := bittrex.GetMarketSummary(market)
-		if err != nil {
-			log.Fatal(err.Error())
-		}
-
-		if summary.MarketName != market {
-			// bug on v2 API may lead to getting the wrong summary
-			continue
-		}
-
-		printSummary(summary)
-
-		time.Sleep(2 * time.Second)
-	}
-
-	return nil
 }

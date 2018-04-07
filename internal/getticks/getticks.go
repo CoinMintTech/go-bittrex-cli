@@ -13,15 +13,6 @@ import (
 // resolution number of digits after the decimal point.
 const resolution = 8
 
-func printCandleStick(candle *bittrex.CandleStick) {
-	fmt.Printf("%s\t", candle.High.StringFixedBank(resolution))
-	fmt.Printf("%s\t", candle.Close.StringFixedBank(resolution))
-	fmt.Printf("%s\t", candle.Low.StringFixedBank(resolution))
-	fmt.Printf("%s\t", candle.Volume.StringFixedBank(resolution))
-	fmt.Printf("%s\t", candle.BaseVolume.StringFixedBank(resolution))
-	fmt.Printf("%s\n", time.Time(candle.Timestamp))
-}
-
 // ValidateArg nothing to be validated.
 func ValidateArg(c *cli.Context) error {
 	return nil
@@ -39,4 +30,13 @@ func Run(cctx *cli.Context) error {
 	}
 
 	return nil
+}
+
+func printCandleStick(candle *bittrex.CandleStick) {
+	fmt.Printf("%s\t", candle.High.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Close.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Low.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.Volume.StringFixedBank(resolution))
+	fmt.Printf("%s\t", candle.BaseVolume.StringFixedBank(resolution))
+	fmt.Printf("%s\n", time.Time(candle.Timestamp))
 }

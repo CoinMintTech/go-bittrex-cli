@@ -23,15 +23,7 @@ const (
 
 var (
 	interval time.Duration
-	mode     = "LOOP"
 )
-
-func printTicker(ts *time.Time, ticker *bittrex.Ticker) {
-	fmt.Printf("%d\t", ts.UnixNano())
-	fmt.Printf("%s\t", ticker.Ask.StringFixedBank(resolution))
-	fmt.Printf("%s\t", ticker.Bid.StringFixedBank(resolution))
-	fmt.Printf("%s\n", ticker.Last.StringFixedBank(resolution))
-}
 
 // ValidateArg nothing to be validated.
 func ValidateArg(c *cli.Context) error {
@@ -76,4 +68,11 @@ func innerLoop(btrc *bittrex.Bittrex) {
 	}
 
 	printTicker(&now, &ticker)
+}
+
+func printTicker(ts *time.Time, ticker *bittrex.Ticker) {
+	fmt.Printf("%d\t", ts.UnixNano())
+	fmt.Printf("%s\t", ticker.Ask.StringFixedBank(resolution))
+	fmt.Printf("%s\t", ticker.Bid.StringFixedBank(resolution))
+	fmt.Printf("%s\n", ticker.Last.StringFixedBank(resolution))
 }
