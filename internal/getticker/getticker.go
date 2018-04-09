@@ -2,8 +2,8 @@ package getticker
 
 import (
 	"fmt"
-	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/toorop/go-bittrex"
@@ -64,7 +64,8 @@ func innerLoop(btrc *bittrex.Bittrex) {
 	now := time.Now().UTC()
 	ticker, err := btrc.GetTicker("USDT-BTC")
 	if err != nil {
-		log.Fatal(err.Error())
+		fmt.Fprintf(os.Stderr, "ERROR %s %s", time.Now().UTC().String(), err.Error())
+		return
 	}
 
 	printTicker(&now, &ticker)
