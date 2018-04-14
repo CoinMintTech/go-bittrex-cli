@@ -38,11 +38,17 @@ const (
 )
 
 var (
+	market   string
 	interval time.Duration
 )
 
 // ValidateArg nothing to be validated.
 func ValidateArg(c *cli.Context) error {
+	if c.NArg() != 1 {
+		return fmt.Errorf("no market defined")
+	}
+	market = c.Args().First()
+
 	interval = c.Duration(flagInterval)
 
 	if interval < 0 {
@@ -78,7 +84,7 @@ func Run(cctx *cli.Context) error {
 func innerLoop(btrc *bittrex.Bittrex) {
 
 	now := time.Now().UTC()
-	ticker, err := btrc.GetTicker("USDT-BTC")
+	ticker, err := btrc.GetTicker(market)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "ERROR %s %s", time.Now().UTC().String(), err.Error())
 		return

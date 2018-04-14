@@ -52,10 +52,11 @@ func main() {
 					Action: getmarketsummary.Run,
 				},
 				{
-					Name:   "ticker",
-					Usage:  "get the current tick values for a market",
-					Before: getticker.ValidateArg,
-					Action: getticker.Run,
+					Name:      "ticker",
+					Usage:     "get the current tick values for a market",
+					ArgsUsage: "<market>",
+					Before:    getticker.ValidateArg,
+					Action:    getticker.Run,
 					Flags: []cli.Flag{
 						cli.DurationFlag{
 							Name:  "interval, i",
