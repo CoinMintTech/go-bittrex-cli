@@ -22,11 +22,11 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/steenzout/go-bittrex-cli/internal/getmarkets"
-	"github.com/steenzout/go-bittrex-cli/internal/getmarketsummary"
-	"github.com/steenzout/go-bittrex-cli/internal/getticker"
-	"github.com/steenzout/go-bittrex-cli/internal/getticks"
-	"github.com/steenzout/go-bittrex-cli/internal/version"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarkets"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarketsummary"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/getticker"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/getticks"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/version"
 )
 
 func main() {

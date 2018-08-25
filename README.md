@@ -1,7 +1,7 @@
 # bittrex-cli
 
-[![Build Status](https://travis-ci.org/steenzout/go-bittrex-cli.svg?branch=master)](https://travis-ci.org/steenzout/go-bittrex-cli/)
-[![Coverage Status](https://coveralls.io/repos/steenzout/go-bittrex-cli/badge.svg?branch=master&service=github)](https://coveralls.io/github/steenzout/go-bittrex-cli?branch=master)
+[![Build Status](https://travis-ci.org/CoinMintTech/go-bittrex-cli.svg?branch=master)](https://travis-ci.org/CoinMintTech/go-bittrex-cli/)
+[![Coverage Status](https://coveralls.io/repos/CoinMintTech/go-bittrex-cli/badge.svg?branch=master&service=github)](https://coveralls.io/github/CoinMintTech/go-bittrex-cli?branch=master)
 
 Command-line interface to the [Bittrex][bittrex] [API][bittrex-api].
 
@@ -30,4 +30,4 @@ GLOBAL OPTIONS:
 
 [bittrex]:  https://bittrex.com "Bittrex"
 [bittrex-api]:  https://bittrex.com/home/api "Bittrex API"
-[license]:  https://raw.githubusercontent.com/steenzout/go-bittrex-cli/master/LICENSE   "License"
+[license]:  https://raw.githubusercontent.com/CoinMintTech/go-bittrex-cli/master/LICENSE   "License"
