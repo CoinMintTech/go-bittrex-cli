@@ -26,6 +26,7 @@ import (
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarketsummary"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getticker"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getticks"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/subscribeexchangeupdate"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/version"
 )
 
@@ -50,6 +51,14 @@ func main() {
 					Usage:  "get the last 24 hour summary of all active exchanges",
 					Before: getmarketsummary.ValidateArg,
 					Action: getmarketsummary.Run,
+				},
+				{
+					Name:      "subscribeexchangeupdate",
+					Usage:     "TODO",
+					ArgsUsage: "<market>",
+					Before:    subscribeexchangeupdate.ValidateArg,
+					Action:    subscribeexchangeupdate.Run,
+					Flags:     []cli.Flag{},
 				},
 				{
 					Name:      "ticker",
