@@ -1,4 +1,4 @@
-Copyright 2015-2018 Pedro Salgado
+Copyright 2015-2019 Pedro Salgado
 
 This project used [steenzout](https://github.com/steenzout/)/[go-primogen](https://github.com/steenzout/go-primogen/) repo as a starting point.
 
