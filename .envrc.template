@@ -1,0 +1,2 @@
+export BITTREX_KEY='scott'
+export BITTREX_SECRET='tiger'
