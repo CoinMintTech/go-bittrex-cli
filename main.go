@@ -26,6 +26,7 @@ import (
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarketsummary"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getticker"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getticks"
+	"github.com/CoinMintTech/go-bittrex-cli/internal/selllimit"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/subscribeexchangeupdate"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/version"
 )
@@ -78,6 +79,23 @@ func main() {
 					Usage:  "get ticks",
 					Before: getticks.ValidateArg,
 					Action: getticks.Run,
+				},
+			},
+		},
+		{
+			Name:      "sell",
+			Usage:     "sell <market> <quantity> <rate>",
+			ArgsUsage: "<market> <quantity> <rate>",
+			Before:    selllimit.ValidateArg,
+			Action:    selllimit.Run,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "bittrex-key",
+					Usage: "Bittrex key (optional, BITTREX_KEY environment variable).",
+				},
+				cli.StringFlag{
+					Name:  "bittrex-secret",
+					Usage: "Bittrex secret (optional, BITTREX_SECRET environment variable).",
 				},
 			},
 		},
