@@ -8,8 +8,6 @@ default: build
 
 build:
 	go fmt ./...
-	echo $(PLATFORM)
-	echo $(ARCH)
 	DEP_BUILD_PLATFORMS=$(PLATFORM) DEP_BUILD_ARCHS=$(ARCH) ./bin/build-all.bash
 	cp ./release/bittrex-cli-$(PLATFORM)-$(ARCH) bittrex-cli
 
