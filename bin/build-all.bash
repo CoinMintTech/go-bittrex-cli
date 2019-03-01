@@ -30,11 +30,11 @@ if [[ "$(pwd)" != "${REPO_ROOT}" ]]; then
   exit 1
 fi
 
-GO_BUILD_CMD="go build -a -installsuffix cgo"
+GO_BUILD_CMD='go build -a -installsuffix cgo'
 GO_BUILD_LDFLAGS="-s -w \
-    -X internal.version.commitHash=${COMMIT_HASH} \
-    -X internal.version.buildDate=${DATE} \
-    -X internal.version.version=${VERSION}"
+    -X github.com/CoinMintTech/go-bittrex-cli/internal/version.buildDate='${DATE}' \
+    -X github.com/CoinMintTech/go-bittrex-cli/internal/version.commitHash='${COMMIT_HASH}' \
+    -X github.com/CoinMintTech/go-bittrex-cli/internal/version.version='${VERSION}'"
 
 if [[ -z "${DEP_BUILD_PLATFORMS}" ]]; then
     DEP_BUILD_PLATFORMS="linux windows darwin freebsd"
@@ -53,8 +53,12 @@ for OS in ${DEP_BUILD_PLATFORMS[@]}; do
       NAME="${NAME}.exe"
     fi
     echo "building for ${OS}/${ARCH}"
-    GOARCH=${ARCH} GOOS=${OS} CGO_ENABLED=0 ${GO_BUILD_CMD} -ldflags "${GO_BUILD_LDFLAGS}"\
-     -o "${REPO_ROOT}/release/${NAME}" .
-    shasum -a 256 "${REPO_ROOT}/release/${NAME}" > "${REPO_ROOT}/release/${NAME}".sha256
+    GOARCH=${ARCH} GOOS=${OS} CGO_ENABLED=0 ${GO_BUILD_CMD} \
+      -ldflags "${GO_BUILD_LDFLAGS}" \
+      -o "${REPO_ROOT}/release/${NAME}" .
+    shasum \
+      -a 256 \
+      "${REPO_ROOT}/release/${NAME}" \
+      > "${REPO_ROOT}/release/${NAME}".sha256
   done
 done
