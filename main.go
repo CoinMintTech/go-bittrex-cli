@@ -22,6 +22,7 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
+	"github.com/CoinMintTech/go-bittrex-cli/internal/buylimit"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarkets"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getmarketsummary"
 	"github.com/CoinMintTech/go-bittrex-cli/internal/getticker"
@@ -37,6 +38,23 @@ func main() {
 	app.Usage = "bittrex-cli is a command-line interface to the Bittrex API."
 	app.Version = version.Version()
 	app.Commands = []cli.Command{
+		{
+			Name:      "buy",
+			Usage:     "buy <market> <quantity> <rate>",
+			ArgsUsage: "<market> <quantity> <rate>",
+			Before:    buylimit.ValidateArg,
+			Action:    buylimit.Run,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "bittrex-key",
+					Usage: "Bittrex key (optional, BITTREX_KEY environment variable).",
+				},
+				cli.StringFlag{
+					Name:  "bittrex-secret",
+					Usage: "Bittrex secret (optional, BITTREX_SECRET environment variable).",
+				},
+			},
+		},
 		{
 			Name:  "get",
 			Usage: "get data",
