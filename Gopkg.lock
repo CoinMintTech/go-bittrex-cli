@@ -11,13 +11,19 @@
   branch = "master"
   name = "github.com/juju/errors"
   packages = ["."]
-  revision = "089d3ea4e4d597bd98acac068193d341983326a3"
+  revision = "e65537c515d77e35697c471d6c2755375cb3adc4"
 
 [[projects]]
   name = "github.com/shopspring/decimal"
   packages = ["."]
   revision = "cd690d0c9e2447b1ef2a129a6b7b49077da89b8e"
   version = "1.1.0"
+
+[[projects]]
+  name = "github.com/steenzout/go-env"
+  packages = ["."]
+  revision = "2827f9b922f3c0ce7878c3a75efb549981adee4d"
+  version = "4.0.2"
 
 [[projects]]
   branch = "master"
@@ -29,7 +35,7 @@
   branch = "master"
   name = "github.com/thebotguys/signalr"
   packages = ["."]
-  revision = "58078e12c98f4d4feb9ad2f992fde4db192de7a0"
+  revision = "787ebe6729fc69294e8d385b21e795cff45a2bea"
 
 [[projects]]
   branch = "master"
@@ -46,6 +52,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c305b8df9d4eecafd05946723dc3823eac9e2049d3118c0c25bf02e05e3c9836"
+  inputs-digest = "d3517f5c7b7e277db1d6d5f66ce9382317f25aa49795684c14b0be1ab3bbe39d"
   solver-name = "gps-cdcl"
   solver-version = 1
