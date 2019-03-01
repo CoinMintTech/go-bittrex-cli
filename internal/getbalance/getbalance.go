@@ -91,7 +91,7 @@ func Run(cctx *cli.Context) error {
 	}
 
 	fmt.Printf(
-		"Available: %s\nBalance: %s\nCryptoAddress: %s\nCurrency: %s\nPending: %s\nRequested: %s\nUUID: %s\n",
+		"Available: %s\nBalance: %s\nCryptoAddress: %s\nCurrency: %s\nPending: %s\nRequested: %t\nUUID: %s\n",
 		balance.Available.StringFixed(resolution),
 		balance.Balance.StringFixed(resolution),
 		balance.CryptoAddress,
